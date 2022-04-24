@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{title}} </title>
+    <link href="{% static 'GATES-LOGO.svg' %}" rel="icon" />
+    {% block header %}
+    {% endblock %}
+    
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/redirectUrl.css' %}" rel="stylesheet" />
+</head>
+<body>
+
+    <!--Redirect URL-->
+    <div class="redirect-url-overlay none" id="redirect-url-overlay">
+        <div class="redirect-loader redirect-loader-1"></div>
+        <div class="redirect-loader redirect-loader-2"></div>
+        <div class="redirect-loader redirect-loader-3"></div>
+        <div class="redirect-loader redirect-loader-4"></div>
+        <div class="redirect-loader redirect-loader-5"></div>
+        <div class="redirectUrlText" id="redirectUrlText"></div>
+    </div>
+    <!--Redirect URL-->
+
+    <!--Logo-->
+    <div class="all-main-logo">
+        <div class="all-main-logo-content">
+            <div class="all-main-logo-img"><img src="{% static 'GATES-LOGO.svg' %}" /></div>
+            <div class="all-main-logo-text">
+                <span>
+                    <div>
+                        <span style="color: rgb(76,199,232);">G</span>
+                        <span style="color: rgb(107,102,174);">A</span>
+                        <span style="color: rgb(168,149,199);">T</span>
+                        <span style="color: rgb(169,77,157);">E</span>
+                        <span style="color: rgb(241,113,171);">S</span>
+                    </div>
+                    <div style="font-size: 0.8em;line-height: 0.8em;">2020</div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--Logo-->
+
+    <!--Hamburger Icon-->
+    <div class="hamburgerIcon-overlay">
+        <div class="hamburger-container">
+            <div class="HamBtn-Clicker" onclick="HamBurgerIconClick();"></div>
+            <div class="hamburger-icon ham-icon-1" id="ham-icon-1"></div>
+            <div class="hamburger-icon ham-icon-2" id="ham-icon-2"></div>
+            <div class="hamburger-icon ham-icon-3" id="ham-icon-3"></div>
+        </div>
+    </div>
+    <!--Hamburger Icon-->
+
+    <!--Nav Menu-->
+    <div class="nav-menu none" id="nav-menu">
+        <a href="{% url 'home' %}" class="nav-menu-elmts nav-menu-elmts-active">Home</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('ABOUT','about');">About</a>
+        <a href="/#event" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Events</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('STAR NIGHT','star-night');">Star Night</a>
+        <a href="/#sponsors" class="nav-menu-elmts" onclick="HamBurgerIconClick();">Sponsors</a>
+        <a class="nav-menu-elmts" onclick="redirectUrlText('DEVELOPER','developer');">Developer</a>
+    </div>
+    <!--Nav Menu-->
+
+    <div class="background-animation none" id="background-animation"></div>
+    {% block content %}
+    {% endblock %}
+    <div class="spacing-10"></div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-college-name">GATES 2020</div>
+                    <div style="letter-spacing: 0.05em;">GTBIT Techno-Cultural Event for creative Souls</div>
+                    <div style="height: 2em;"></div>
+                    <div><a class="footer-brochure">Download Brochure</a></div>
+                </div>
+                <div>
+                    <div style="font-size: 1.5em;">Follow Us:</div>
+                    <div class="footer-links">
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg1.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg2.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg3.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg4.svg' %}" /></a></div>
+                        <div><a href="#"><img src="{% static 'assets/images/socialImg5.svg' %}" /></a></div>
+                    </div>
+                </div>
+                <div class="footer-college-address">
+                    <div style="font-size: 1.2em;text-shadow: 0 0 10px #BB86FC;">Address:</div>
+                    <div>Guru Tegh Bahadur Institute Of Technology</div>
+                    <div>G-8 Area, Rajouri Garden,</div>
+                    <div>New Delhi - 110064</div>
+                </div>
+            </div>
+            <div style="height: 2.5em;"></div>
+            <hr/>
+            <div style="height: 1em;"></div>
+            <div style="text-align: center;text-shadow: 0 0 3px #000;">© GATES 2020. All Rights Reserved.</div>
+            <div style="height: 1em;"></div>
+        </div>
+    </div>
+    
+    {% block script %}
+    {% endblock %}
+    <script>
+        
+        const DisplayBackBalls = (id,numBalls) => {
+            const colors = ["#bb86fc","#d5b3ff","#a459ff"];
+            const boxColor = ["#bb86fc","#d5b3ff","#a459ff"];
+            // const colors = ["#3d7bfa", "#ff3c3c", "#05c270", "#fb8c07", "#ffcc00","#00cfdd","#ac5cd9","#ebeaef"];
+            // const boxColor = ["#b5ccff", "#ff8080", "#9fffd1", "#ffbd6c", "#ffe374","#6df5ff","#db9dff","#ffffff"];
+            // const numBalls = 10;
+            const balls = [];
+
+            for (let i = 0; i < numBalls; i++) {
+            let ball = document.createElement("div");
+            ball.classList.add("ball");
+            var colorArr = Math.floor(Math.random() * colors.length);
+            ball.style.background = colors[colorArr];
+            ball.style.boxShadow = `0 0 5px 0 ${boxColor[colorArr]}`;
+            ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+            ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+            ball.style.transform = `scale(${Math.random()})`;
+            ball.style.width = `${Math.random()}em`;
+            ball.style.height = ball.style.width;
+            
+            balls.push(ball);
+            document.getElementById(id).append(ball);
+            }
+
+            // Keyframes
+            balls.forEach((el, i, ra) => {
+                let to = {
+                    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+                    y: Math.random() * 12
+                };
+
+                let anim = el.animate(
+                    [{ transform: "translate(0, 0)" },
+                    { transform: `translate(${to.x}rem, ${to.y}rem)` }],
+                    {
+                        duration: (Math.random() + 1) * 2000, // random duration
+                        direction: "alternate",
+                        fill: "both",
+                        iterations: Infinity,
+                        easing: "ease-in-out"
+                    }
+                );
+            });
+        }
+        DisplayBackBalls("background-animation",10);
+    </script>
+    <script src="{% static 'js/redirectUrl.js' %}"></script>
+    <script src="{% static 'js/hamIcon.js' %}"></script>
+</body>
+</html>

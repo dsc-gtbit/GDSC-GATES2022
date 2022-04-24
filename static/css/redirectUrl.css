@@ -1,0 +1,76 @@
+.redirect-url-overlay,.redirect-url-overlay-1{
+    position: fixed;
+    z-index: 104;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.redirect-url-overlay{
+    background: rgba(255,255,255,0.2);
+    animation: redirectoverlay 1s ease 1 forwards;
+    opacity: 0;
+}
+.redirect-url-overlay-1{
+    background: #000;
+}
+@keyframes redirectoverlay {
+    to{opacity: 1;}
+}
+.redirect-loader{
+    position: fixed;
+    height: 5em;
+    width: 5em;
+    background: #000;
+    border-radius: 50%;
+    opacity: 0;
+    animation: redirectFadeIn 1.5s ease-in-out 1 forwards;
+    animation-delay: 0.5s;
+}
+@keyframes redirectFadeIn {
+    to{opacity: 1;transform: scale(50);}
+}
+.redirect-loader-1{top: 0;left: 0;}
+.redirect-loader-2{top: 0;right: 0;}
+.redirect-loader-3{bottom: 0;right: 0;}
+.redirect-loader-4{bottom: 0;left: 0;}
+.redirect-loader-5{top: 50%;left: 50%;}
+
+.redirectUrlText{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    z-index: 106;
+    font-size: 2em;
+    transform: translate(-50%,-50%);
+    width: max-content;
+    display: flex;
+}
+.redirectUrlText > div.redirectText{
+    margin: 0 0.2em;
+    color: #fff;
+    font-size: 1.2em;
+    animation: RedirectbounceUp 1.5s ease infinite forwards;
+    opacity: 0;
+}
+.redirectUrlText > div.redirectText1{
+    margin: 0 0.2em;
+    color: #fff;
+    font-size: 0.8em;
+    animation: RedirectbounceUp 1.5s ease infinite forwards;
+    opacity: 0;
+}
+@keyframes RedirectbounceUp {
+    0%{opacity: 0.2;transform: scale(0.2);}
+    80%{opacity: 1;transform: scale(1);}
+    100%{opacity: 1;transform: scale(1);}
+}
+
+.ScaleDownAll{
+    animation: scaleDown 1s ease-in-out 1 forwards;
+}
+@keyframes scaleDown{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
