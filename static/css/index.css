@@ -143,7 +143,7 @@
     background: url("/static/assets/images/technical.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0 auto 0 0;
+    /* margin: 0 auto 0 0; */
     box-shadow: 0 0 10px 5px rgba(26, 115, 232, 0.7);
 }
 .event-grid-3 .event-container:nth-child(2){
@@ -269,7 +269,7 @@
 
 @media screen and (min-width: 992px){
     .event-grid-3{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
     .event-grid-2{
         grid-template-columns: repeat(2,1fr);
