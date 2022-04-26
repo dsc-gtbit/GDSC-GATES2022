@@ -6,13 +6,13 @@ import requests
 # Create your views here.
 def home(request):
     context = {
-        "title": "GATES 2020 | GTBIT Official Techno-Cultural Fest Event for creative Souls",
+        "title": "GATES 2022 | GTBIT Official Techno-Cultural Fest Event for creative Souls",
     }
     return render(request,"index.html",context)
 
 def about(request):
     context = {
-        "title": "ABOUT | GATES 2020",
+        "title": "ABOUT | GATES 2022",
     }
     return render(request,"about.html",context)
 
@@ -109,7 +109,7 @@ def developer(request):
 
 def starNight(request):
     context = {
-        "title": "STAR NIGHT | GATES 2020",
+        "title": "STAR NIGHT | GATES 2022",
     }
     return render(request,"starNight.html",context)
 
@@ -140,16 +140,16 @@ def getEvents(category,ImageUrl):
 
 def techEvent(request):
     context = {
-        "title": "Technical Events | GATES 2020",
+        "title": "Technical Events | GATES 2022",
     }
     event_list = getEvents("Technical","/static/assets/images/technical.jpg")
     context["events"] = event_list
     context["category"] = "Technical"
-    return render(request,"event.html",context)
+    return render(request,"https://linktr.ee/gdscweb",context)
 
 def manageEvent(request):
     context = {
-        "title": "Management Events | GATES 2020",
+        "title": "Management Events | GATES 2022",
     }
     event_list = getEvents("Management","/static/assets/images/manage.jpg")
     context["events"] = event_list
@@ -158,7 +158,7 @@ def manageEvent(request):
 
 def divineEvent(request):
     context = {
-        "title": "Divine Events | GATES 2020",
+        "title": "Divine Events | GATES 2022",
     }
     event_list = getEvents("Divine","/static/assets/images/divine.jpg")
     context["events"] = event_list
@@ -167,7 +167,7 @@ def divineEvent(request):
 
 def miscEvent(request):
     context = {
-        "title": "Miscellaneous Events | GATES 2020",
+        "title": "Miscellaneous Events | GATES 2022",
     }
     event_list = getEvents("Miscellaneous","/static/assets/images/misc.jpg")
     context["events"] = event_list
@@ -176,7 +176,7 @@ def miscEvent(request):
 
 def culturalEvent(request):
     context = {
-        "title": "Cultural Events | GATES 2020",
+        "title": "Cultural Events | GATES 2022",
     }
     event_list = getEvents("Cultural","/static/assets/images/cultural.jpg")
     context["events"] = event_list

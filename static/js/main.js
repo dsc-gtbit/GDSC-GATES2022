@@ -9,7 +9,7 @@ const DesktopLoaderFun = () => {
     document.getElementById("loader-overlay").classList.remove("none");
     document.getElementById("base-overlay").classList.add("none");
     setTimeout(() => {
-        document.getElementById("loader-text").innerText = "2020";
+        document.getElementById("loader-text").innerText = "2022";
     }, 1750);
     setTimeout(() => {
         document.getElementById("loader-overlay").classList.add("none");
