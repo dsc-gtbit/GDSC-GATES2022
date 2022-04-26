@@ -28,6 +28,19 @@
 .page-1-img-popOut:nth-child(5){
     animation-delay: 0.4s;
 }
+
+/* .regilink{
+    padding: 0.2em 3.5em;
+    width: max-content;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 3px solid #fff;
+    color: #fff;
+    transition: 0.2s;
+    background: rgba(0,0,0,0);
+} */
+
 @keyframes imgPopOut{
     0%{transform: scale(0);}
     100%{transform: scale(1);}
